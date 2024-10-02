@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            background-color:rgba(107,183,213);
+            padding: 150px;
+
+        }
+        .container{
+            height:130px;
+            width: 300px;
+            border: 2px groove rgba(118,239,248,0.9) ;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+        }
+        h1{
+            font-style: italic;
+            color: rgb(8,9,100);
+
+        }
+        #clock{
+            font-size: 30px;
+            font-style: sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+        <div class="container">
+            <h1>Digital Clock</h1>
+            <div id="clock">
+                <span id="hour">5</span>
+                <span>:</span>
+                <span id="minutes">5</span>
+                <span>:</span>
+                <span id="seconds">5</span>
+                <span>:</span>
+                <span id="amorpm">AM</span>
+            </div>    
+        </div>
+    </center>
+<script>
+    var hourspan=document.getElementById('hour')
+    var minutespan=document.getElementById('minutes')
+    var secondspan=document.getElementById('seconds')
+    var amorpmspan=document.getElementById('amorpm')
+
+    function changetimer(){
+        var date=new Date()
+        var hour=date.getHours()
+        hourspan.textContent=hour
+        var minutes=date.getMinutes() 
+        minutespan.textContent=minutes
+        var seconds=date.getSeconds()
+        secondspan.textContent=seconds
+
+        if(hour===0){
+            amorpm="AM"
+        }
+        else if(hour>0 && hour<12){
+            amorpmspan="AM"
+
+        }
+        else{
+            amorpmspan="PM"
+        }
+        amorpmspan.textContent=amorpm
+    }
+    setInterval(changetimer,1000)
+</script>
+    
+</body>
+</html>
